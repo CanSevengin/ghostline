@@ -6,7 +6,7 @@ Ghostline learns who you are, what you know and how you sound, then keeps your p
 
 It's for people with real expertise and no time to write: export and sales managers, operators, founders.
 
-> **Status: v0, in production for one user.** Ghostline currently runs [cansevengin.com](https://cansevengin.com) as a scheduled Claude agent, publishing twice a week since 8 October 2026. A Claude API version that other people can onboard onto is in progress. See [ROADMAP.md](ROADMAP.md).
+> **Status: v0, in production for one user.** Ghostline currently runs [cansevengin.com](https://cansevengin.com) as a scheduled Claude agent, publishing twice a week since 8 October 2026. A standalone CLI built on the Claude API is in [`src/`](src/ghostline.mjs) (tested end to end in mock mode, first live API runs next). See [ROADMAP.md](ROADMAP.md).
 
 ## How it works
 
@@ -29,11 +29,19 @@ Research ─► Write ─► Check ─► Publish ─► Announce ─► Report
 | [`profile.example.yml`](profile.example.yml) | Who you are: background, topics, voice, things the agent must never write about. |
 | [`WRITING_RULES.md`](WRITING_RULES.md) | Style and honesty rules every note must pass. |
 | [`examples/cansevengin.profile.yml`](examples/cansevengin.profile.yml) | The real profile behind cansevengin.com. |
-| [`ROADMAP.md`](ROADMAP.md) | Where this is going, including the Claude API version. |
+| [`src/ghostline.mjs`](src/ghostline.mjs) | The Claude API CLI: web search, writing, validation, Markdown output, optional publish and IndexNow ping. |
+| [`prompts/agent.md`](prompts/agent.md) | System prompt template used by the CLI. |
+| [`voice/profile.example.md`](voice/profile.example.md) | Voice profile used by the CLI. |
+| [`ghostline.config.example.json`](ghostline.config.example.json) | CLI configuration example. |
+| [`ROADMAP.md`](ROADMAP.md) | Where this is going. |
 
-## Run it yourself (v0)
+## Run it yourself
 
-v0 is a set of instructions, not a hosted service. You need:
+There are two ways to run Ghostline today. Neither is a hosted service yet.
+
+### A. As a scheduled Claude agent (how cansevengin.com runs)
+
+You need:
 
 - A static site in a Git repo with Markdown posts (the reference setup is [Astro](https://astro.build) on [Vercel](https://vercel.com)).
 - Claude with scheduled tasks (or Claude Code on a schedule) and push access to your site's repo.
@@ -44,6 +52,20 @@ Steps:
 2. Adjust `WRITING_RULES.md` to your taste.
 3. Create a scheduled task (e.g. Monday and Thursday mornings) whose prompt is the contents of `AGENT.md`, with `profile.yml` and `WRITING_RULES.md` pasted in or reachable from the repo.
 4. Optional: add an [IndexNow](https://www.indexnow.org) key file to your site and put the key in `profile.yml`.
+
+### B. As a CLI on the Claude API (early)
+
+```bash
+npm install
+cp ghostline.config.example.json ghostline.config.json   # point contentDir/repoDir at your site
+cp voice/profile.example.md voice/profile.md              # describe yourself honestly
+export ANTHROPIC_API_KEY=...
+npm run demo                 # mock run, no API call, writes to examples/out
+node src/ghostline.mjs       # real run: research with web search, write, validate, save
+node src/ghostline.mjs --publish   # also build, commit, push and ping IndexNow
+```
+
+The CLI asks Claude to research with the web search tool and return the note as structured JSON, then validates length, banned phrases and dashes before writing a Markdown file with front matter.
 
 ## Principles
 

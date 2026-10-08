@@ -6,9 +6,14 @@
 - Runs as a scheduled Claude agent twice a week: research, write, check, publish, announce, report.
 - Site, SEO (structured data, per-post share images, llms.txt, IndexNow) and the agent itself were built with Claude.
 
-## v1: Claude API version that anyone can onboard onto (next)
+## v0.1: Claude API CLI (in this repo)
 
-- A small service built on the Claude API (tool use, web search) and the Claude Agent SDK, so the pipeline no longer depends on a personal Claude account.
+- `src/ghostline.mjs`: researches with Claude's web search tool, writes one note as structured JSON, validates it and saves Markdown. Optional build, commit, push and IndexNow ping.
+- Tested end to end in mock mode. Next: live API runs against cansevengin.com, then moving the scheduled job onto the CLI.
+
+## v1: a hosted version anyone can onboard onto (next)
+
+- A small service on the Claude API (and the Claude Agent SDK where it fits), so the pipeline no longer depends on a personal Claude account or a local setup.
 - **Onboarding interview:** a conversation that builds `profile.yml` from the person's CV, LinkedIn export and a few questions about their views.
 - **Voice calibration:** learn tone from 3-5 samples the person has written themselves.
 - **Approval modes:** auto-publish, or draft-and-approve by email or chat.

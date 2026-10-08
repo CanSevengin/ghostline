@@ -2,3 +2,4 @@ node_modules
 ghostline.config.json
 voice/profile.md
 .env
+examples/out/
