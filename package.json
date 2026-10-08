@@ -1,0 +1,36 @@
+{
+  "name": "ghostline",
+  "version": "0.1.0",
+  "description": "A self-running publishing agent for busy professionals, built on Claude.",
+  "directories": {
+    "example": "examples"
+  },
+  "scripts": {
+    "draft": "node src/ghostline.mjs",
+    "demo": "node src/ghostline.mjs --mock --out examples/out"
+  },
+  "keywords": [
+    "claude",
+    "anthropic",
+    "ai-agent",
+    "blog",
+    "seo",
+    "publishing"
+  ],
+  "author": "Can Sevengin <hello@cansevengin.com> (https://cansevengin.com)",
+  "license": "MIT",
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.132.1"
+  },
+  "type": "module",
+  "bin": {
+    "ghostline": "src/ghostline.mjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/CanSevengin/ghostline"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

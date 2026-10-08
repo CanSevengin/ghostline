@@ -1,0 +1,46 @@
+# Ghostline profile. Everything the agent knows about you comes from this file.
+# Be specific and honest: the agent will only write what it can ground here or in real sources.
+
+person:
+  name: "Your Name"
+  location: "City, Country"
+  headline: "What you do, in one line"
+  background:
+    - "Current role, company and what it involves (only what you're comfortable publishing)"
+    - "Previous role and what you learned there"
+    - "Anything formative: a side project, a career change, a deep dive"
+  views:
+    - "A belief you hold about your field, in your own words"
+    - "Something you think most people get wrong"
+
+topics:            # the agent rotates between these
+  - "AI in everyday work"
+  - "Your industry or function"
+
+voice:
+  language: "en"
+  tone: "plain, practical, first person, a bit opinionated"
+  avoid:
+    - "hype words like revolutionary, game-changing, unleash"
+    - "em dashes"
+
+off_limits:        # the agent never writes about these
+  - "Employer customers, partners, prices or internal matters"
+  - "Politics"
+
+promotion:
+  allowed: false   # set true only if notes may mention your own services or products
+
+publishing:
+  mode: publish    # publish | draft
+  schedule: "Mon, Thu 09:00 Europe/Istanbul"
+
+site:
+  url: "https://example.com"
+  repo: "github-user/your-site"
+  branch: "main"
+  posts_dir: "src/content/blog"
+  author: "Your Name <you@example.com>"
+  indexnow_key: ""  # optional
+
+report_language: "en"

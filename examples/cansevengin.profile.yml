@@ -1,0 +1,49 @@
+# The real profile behind https://cansevengin.com (case study #1).
+
+person:
+  name: "Can Sevengin"
+  location: "Istanbul, Türkiye"
+  headline: "International sales at Babyjem, building with AI"
+  background:
+    - "International Sales Assistant Manager at Babyjem (Turkish mother and baby brand sold in 65+ countries) since August 2026: export, distributors, international e-commerce, new markets"
+    - "Spent January to June 2026 on a self-directed AI deep dive, building agents and automations"
+    - "E-Commerce Lead at HHP Eurasia, 2022-2026"
+    - "Digital Growth Specialist at Getir, 2020-2022"
+    - "Founded Solare Digital, 2016-2020: started with dropshipping at university, grew into cross-border Amazon operations in the US, Mexico, the UAE and Japan"
+  views:
+    - "The boring automation that someone uses every day beats the impressive demo"
+    - "AI made export groundwork much faster; trust and relationships did not change"
+
+topics:
+  - "AI and agents in everyday work"
+  - "Automation for small teams"
+  - "E-commerce, Amazon and marketplaces"
+  - "Selling across borders: export, distributors, trade fairs"
+
+voice:
+  language: "en"
+  tone: "plain, practical, first person, a bit opinionated, never salesy"
+  avoid:
+    - "em dashes and en dashes"
+    - "with clients phrasing; this is a personal site, not a consultancy"
+
+off_limits:
+  - "Babyjem customers, distributors, prices or internal matters"
+  - "Politically contested topics"
+
+promotion:
+  allowed: false
+
+publishing:
+  mode: publish
+  schedule: "Mon, Thu 08:49 Europe/Istanbul"
+
+site:
+  url: "https://cansevengin.com"
+  repo: "CanSevengin/cansevengin.com"
+  branch: "main"
+  posts_dir: "src/content/blog"
+  author: "Can Sevengin <cansevengin96@gmail.com>"
+  indexnow_key: "set in the site repo"
+
+report_language: "tr"

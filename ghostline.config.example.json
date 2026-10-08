@@ -1,0 +1,21 @@
+{
+  "owner": { "name": "Can Sevengin" },
+  "siteUrl": "https://cansevengin.com",
+  "model": "claude-opus-5-5",
+  "maxSearches": 8,
+  "topics": ["AI in everyday work", "automation for small teams", "e-commerce and marketplaces", "international trade and export"],
+  "voiceProfile": "voice/profile.example.md",
+  "contentDir": "../site/src/content/blog",
+  "repoDir": "../site",
+  "buildCommand": "npm run build",
+  "publishAsDraft": false,
+  "minWords": 600,
+  "maxWords": 900,
+  "timezoneOffset": "+03:00",
+  "indexNowKey": "",
+  "bannedPhrases": ["with clients", "book a call", "game-changer"],
+  "rules": [
+    "This is a personal site, not a sales page. Never pitch services.",
+    "Avoid politically contested topics."
+  ]
+}
